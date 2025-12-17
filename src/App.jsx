@@ -11,11 +11,21 @@ function Btn({value, onBtnClick}){
 
 export default function Box(){
   const [btn, setBtn] = useState(Array(9).fill(null));
-
+  const [xIsNext, setXIsNext] = useState(true) 
   function handleClick(i) {
     const nextBtn = btn.slice();
-    nextBtn[i] = "X"
+    // if btn already filled, can't fill it again
+    if (btn[i]) return;
+    // using if else 
+    // if(xIsNext) {
+    //   nextBtn[i] = "X"
+    // } else {
+    //   nextBtn[i] = "O"
+    // }
+    // using ternary alternative from if else
+    nextBtn[i] = xIsNext ? "X" : "O" ;
     setBtn(nextBtn);
+    setXIsNext(!xIsNext)
   }
   
   return(
