@@ -31,16 +31,12 @@ body {
   font-weight: bold;
 }
 
-.box>.button:nth-child(1),.box>.button:nth-child(4),.box>.button:nth-child(7) {
-  border-right: 2px solid;
-}
 .box>.button:nth-child(2),.box>.button:nth-child(5),.box>.button:nth-child(8) {
   border-right: 2px solid;
-}
-.box>.button:nth-child(1),.box>.button:nth-child(2),.box>.button:nth-child(3) {
-  border-bottom: 2px solid;
+  border-left: 2px solid;
 }
 .box>.button:nth-child(4),.box>.button:nth-child(5),.box>.button:nth-child(6) {
+  border-top: 2px solid;
   border-bottom: 2px solid;
 }
 
