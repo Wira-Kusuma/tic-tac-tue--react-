@@ -1,28 +1,17 @@
 import { useState } from 'react'
 import './index.css'
 
-function Btn({value, onBtnClick}){
-  return (
-    <div className='button' onClick={onBtnClick}>
-      {value}
-    </div>
-  );
-} 
 
 export default function Box(){
+
   const [btn, setBtn] = useState(Array(9).fill(null));
-  const [xIsNext, setXIsNext] = useState(true) 
+  const [xIsNext, setXIsNext] = useState(true);
+
   function handleClick(i) {
     if(btn[i] || calcWinner(btn)) return;
+
     const nextBtn = btn.slice();
-    // if btn already filled, can't fill it again
-    // using if else 
-    // if(xIsNext) {
-    //   nextBtn[i] = "X"
-    // } else {
-    //   nextBtn[i] = "O"
-    // }
-    // using ternary alternative from if else
+    
     nextBtn[i] = xIsNext ? "X" : "O" ;
     setBtn(nextBtn);
     setXIsNext(!xIsNext)
@@ -31,7 +20,7 @@ export default function Box(){
   const winner = calcWinner(btn);
   const isDraw = !winner && btn.every(square => square !== null);
 
-  let status = "";
+  const status = "";
   if(winner){
     status = "Winner: " + winner;
   } else if(isDraw) {
@@ -66,6 +55,14 @@ export default function Box(){
     
   )
 }
+
+function Btn({value, onBtnClick}){
+  return (
+    <div className='button' onClick={onBtnClick}>
+      {value}
+    </div>
+  );
+} 
 
 function calcWinner(btn) {
   const lines = [
